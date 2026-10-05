@@ -4,10 +4,10 @@ CREATE TABLE courses (
   id SERIAL PRIMARY KEY,
   code TEXT UNIQUE NOT NULL,
   title TEXT NOT NULL,
-  category TEXT NOT NULL,            -- 'Art' or 'Business' (courses.json "type")
+  category TEXT NOT NULL,            -- 'Art' or 'Business', as an example
   credits INT NOT NULL,
-  predicted_workload NUMERIC(3,1),   -- 0-10, filled later by the ML script. Synthetic data!
-  workload_category TEXT             -- 'Low' | 'Moderate' | 'High'
+  predicted_workload NUMERIC(3,1),   -- synthetic data
+  workload_category TEXT             
 );
 
 CREATE TABLE course_assessments (

@@ -1,0 +1,192 @@
+/* Easy GE Course Selector - main stylesheet
+   Idea: a student's notebook. Cool paper, navy ink, one yellow highlighter. */
+
+/* ---------- Colors and fonts (change them here only) ---------- */
+:root {
+  --paper: #eef2f7;      /* page background */
+  --card: #ffffff;       /* boxes on top of the page */
+  --ink: #1b2a41;        /* main text */
+  --muted: #5b6b82;      /* secondary text */
+  --line: #d3dbe6;       /* borders */
+  --highlight: #ffe45c;  /* highlighter yellow, used sparingly */
+
+  /* workload colors: Low / Moderate / High */
+  --low: #2e8b57;
+  --moderate: #b07800;
+  --high: #c8443a;
+
+  --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+main {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  max-width: 65ch; /* keep lines short enough to read */
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* Visible outline for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ---------- The one bold thing: highlighter under the main heading ---------- */
+h1 {
+  display: inline;
+  background: linear-gradient(transparent 55%, var(--highlight) 55%, var(--highlight) 90%, transparent 90%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+h1 + p {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 1.25rem;
+}
+
+/* ---------- Navigation ---------- */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px solid var(--ink);
+  background: var(--card);
+}
+
+nav a {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Ready for later steps: tables, buttons, workload badges ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+button,
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--card);
+  font: 600 1rem var(--font-heading);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+  background: var(--card);
+  color: var(--ink);
+}
+
+input,
+select {
+  padding: 0.55rem 0.75rem;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+}
+
+/* Usage: <span class="badge badge-low">Low</span> */
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.badge-low {
+  background: var(--low);
+}
+
+.badge-moderate {
+  background: var(--moderate);
+}
+
+.badge-high {
+  background: var(--high);
+}
+
+/* Small grey note, e.g. "Workload ratings are synthetic" */
+.note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
