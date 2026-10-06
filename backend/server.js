@@ -2,6 +2,7 @@ import morgan from 'morgan';
 import 'dotenv/config';
 import express from 'express';
 import dotenv from 'dotenv';
+import pool from "./db.js";
 
 
 const app = express();
