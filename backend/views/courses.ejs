@@ -1,3 +1,7 @@
 <%- include('header.ejs') %>
-
+<ul>
+    <% courses.forEach(course => { %>
+        <li><%= course.title %></li>
+    <%});%>
+</ul>
 <%- include('footer.ejs') %>
