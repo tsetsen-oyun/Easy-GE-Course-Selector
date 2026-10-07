@@ -190,3 +190,21 @@ select {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+.course-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.course-card {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.course-card:hover {
+  border-color: var(--ink);
+}

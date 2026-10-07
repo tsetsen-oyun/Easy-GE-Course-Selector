@@ -1,7 +1,12 @@
 <%- include('header.ejs') %>
-<ul>
+<h1>Courses</h1>
+<div class="course-grid">
     <% courses.forEach(course => { %>
-        <li><%= course.title %></li>
-    <%});%>
-</ul>
+        <article class="course-card">
+            <h3><a href="/courses/<%= course.code %>"><%= course.title%></a></h3>
+            <p class="note"><%= course.category %> | <%= course.code %> | <%= course.credits %> credits</p>
+        </article>
+    <%}); %>
+</div>
+
 <%- include('footer.ejs') %>
