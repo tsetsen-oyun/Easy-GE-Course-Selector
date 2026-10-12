@@ -1,6 +1,7 @@
-// time O(m·n), space O(m·n))
+// time O(m·n), space O(m·n)
+// minimum single-character edits to turn a into b
 
-const levenshteinDistance = (str1 = "", str2 = "") => {
+export const levenshtein = (str1 = "", str2 = "") => {
     const track = [];
 
     for (let i = 0; i <= str2.length; i++) {
@@ -36,5 +37,3 @@ const levenshteinDistance = (str1 = "", str2 = "") => {
 
     return track[str2.length][str1.length];
 };
-
-console.log(levenshteinDistance(str1, str2));
