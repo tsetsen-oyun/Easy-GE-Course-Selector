@@ -1,34 +1,40 @@
-const str1 = document.getElementById("#");
-const str2 = document.getElementById("#");
-let matrix = [];
+// time O(m·n), space O(m·n))
 
-if (str1 === str2) {
-    return 0;
-}
+const levenshteinDistance = (str1 = "", str2 = "") => {
+    const track = [];
 
-if (str1 === " " && str2 !== " ") {
-    return str1.length;
-}
+    for (let i = 0; i <= str2.length; i++) {
+        track[i] = [];
 
-if (str2 === " " && str1 !== " ") {
-    return str1.length;
-}
-
-for (let i = 0; i <= str1.length; i++) {
-    matrix[i]= [];
-    for (let j = 0; j <= str2.length; j++) {
-        matrix[i][j] = 
+        for (let j = 0; j <= str1.length; j++) {
+            track[i][j] = null;
+        }
     }
-}
 
-const 
-// for (let j = 1; j <= str2.length; j += 1) {
-//     for (let i = 1; i <= str1.length; i += 1) {
-//         const indicator = str1[i - 1] === str2[j - 1]? 0 : 1;
-//         track[j][i] = Math.min(
-//             track[j][i - 1] + 1,
-//             track[j - 1][i] + 1,
-//             track[j - 1][i - 1] + indicator,
-//         );
-//     }
-// }
+    for (let i = 0; i <= str1.length; i ++) {
+        track[0][i] = i;
+    }
+
+    for (let  j = 0; j <= str2.length; j ++) {
+        track[j][0] = j;
+    }
+
+    for (let j = 1; j <= str2.length; j++) {
+        for (let i = 1; i <= str1.length; i++) {
+            let indicator = 0; 
+            if (str1[i - 1] !== str2[j - 1]) {
+                indicator = 1;
+            } 
+            
+            track[j][i] = Math.min(
+                track[j][i - 1] + 1, //deletion
+                track[j - 1][i] + 1, //insertion
+                track[j - 1][i - 1] + indicator //substitution
+            );
+        }
+    }
+
+    return track[str2.length][str1.length];
+};
+
+console.log(levenshteinDistance(str1, str2));
