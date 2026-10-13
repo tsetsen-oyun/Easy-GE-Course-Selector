@@ -1,5 +1,5 @@
 // time O(m·n), space O(m·n)
-// minimum single-character edits to turn a into b
+//the minimum number of single-character edits (insert, delete, replace) to turn a into b.
 
 export const levenshtein = (str1 = "", str2 = "") => {
     const track = [];
