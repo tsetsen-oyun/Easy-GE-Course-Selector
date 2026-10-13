@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { Trie } from '../algorithms/trie.js';
+import { Trie } from '../src/algorithms/trie.js';
 
 // Builds a small trie we can reuse: course titles -> course codes
 function makeTrie() {
