@@ -1,7 +1,7 @@
 // time O(m·n), space O(m·n)
 //the minimum number of single-character edits (insert, delete, replace) to turn a into b.
 
-export const levenshtein = (str1 = "", str2 = "") => {
+export const Levenshtein = (str1 = "", str2 = "") => {
     const track = [];
 
     for (let i = 0; i <= str2.length; i++) {
